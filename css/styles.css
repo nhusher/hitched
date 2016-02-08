@@ -1,0 +1,24 @@
+html {
+  font: 16px / 24px "abril-text"; }
+
+body {
+  padding: 80px 0; }
+
+.side-header {
+  text-align: center; }
+  .side-header h1 {
+    font-family: "estilo-pro";
+    font-feature-settings: "salt", "swsh"; }
+    .side-header h1 em {
+      font-family: "abril-text";
+      font-style: none;
+      font-weight: normal; }
+  .side-header p {
+    margin: 0; }
+
+section {
+  text-align: center;
+  margin: 80px 0;
+  font-style: italic; }
+
+/*# sourceMappingURL=styles.css.map */
