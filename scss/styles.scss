@@ -1,0 +1,44 @@
+
+
+$grid: 8px;
+
+@function g($m) { @return $grid * $m; }
+
+$standard-font-size: g(2);
+$standard-line-height: g(3);
+
+$abril: "abril-text";
+$estilo: "estilo-pro";
+
+
+html {
+  font: #{$standard-font-size} / #{$standard-line-height} $abril;
+}
+body {
+  padding: g(10) 0;
+}
+
+.side-header {
+  text-align: center;
+
+  h1 {
+    font-family: $estilo;
+    font-feature-settings: "salt", "swsh";
+    
+    em {
+      font-family: $abril;
+      font-style: none;
+      font-weight: normal;
+    }
+  }
+  
+  p {
+    margin: 0;
+  }
+}
+
+section {
+  text-align: center;
+  margin: g(10) 0;
+  font-style: italic;
+}
