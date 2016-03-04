@@ -26,20 +26,46 @@ body {
   margin: 0;
 }
 
+:link {
+  color: $lilac;
+}
+
 header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
-  background: $lilac;
   color: $white;
-  min-height: 30vh;
+  min-height: 100vh;
+  background: $lilac;
+  background-size: auto 30%;
+  padding: 5vh;
+  box-sizing: border-box;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    top: 2vh;
+    bottom: 2vh;
+    left: 2vh;
+    right: 2vh;
+    border: 2px solid $white;
+    pointer-events: none;
+  }
+  
+  a {
+    color: $white;
+    text-decoration: none;
+  }
 
   h1 {
     font-family: $estilo;
     font-feature-settings: "salt", "swsh";
     margin: 0;
     padding: 0;
-    font-weight: normal;
+    font-weight: 100;
     font-size: $standard-font-size * 4;
-    line-height: 30vh;
     
     em {
       font-family: $abril;
@@ -48,16 +74,56 @@ header {
     }
   }
   
-  p {
+  
+  nav {
+    display: none;
+    position: absolute;
+    bottom: 10vh;
+    left: 0;
+    right: 0;
+    padding: 5vh;
+    font-family: $estilo;
+    text-transform: uppercase;
+    font-feature-settings: auto; // "salt";
+    letter-spacing: 0.1rem;
+    
+    ul {
+      list-style: none;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+    
+    li {
+      flex-basis: 25%;
+    }
+  }
+  
+  .date {
+    margin: 20vh 0 0;
+    font-size: 200%;
+  }
+  .next {
+    display: none;
+    
+    position: absolute;
+    bottom: 5vh;
+    left: 0;
+    right: 0;
     margin: 0;
+    img {
+      max-height: 5vh;
+      max-width: 10vh;
+    }
   }
 }
 
 
-
 section {
-  text-align: center;
-  margin: g(10) 0;
-  font-style: italic;
+  min-height: 100vh;
+  padding: 5vh;
+  box-sizing: border-box;
+  position: relative;
+  display: none;
 }
 
