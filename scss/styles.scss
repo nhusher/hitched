@@ -66,6 +66,11 @@ header {
     padding: 0;
     font-weight: 100;
     font-size: $standard-font-size * 4;
+    line-height: 1;
+    
+    span {
+      white-space: nowrap;
+    }
     
     em {
       font-family: $abril;
