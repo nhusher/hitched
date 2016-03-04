@@ -49,7 +49,6 @@ header {
       font-style: none;
       font-weight: normal; }
   header nav {
-    display: none;
     position: absolute;
     bottom: 10vh;
     left: 0;
@@ -70,7 +69,6 @@ header {
     margin: 20vh 0 0;
     font-size: 200%; }
   header .next {
-    display: none;
     position: absolute;
     bottom: 5vh;
     left: 0;
@@ -80,11 +78,18 @@ header {
       max-height: 5vh;
       max-width: 10vh; }
 
-section {
+body > section {
   min-height: 100vh;
   padding: 5vh;
   box-sizing: border-box;
-  position: relative;
+  position: relative; }
+
+#schedule ol {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+#nearby {
   display: none; }
 
 /*# sourceMappingURL=styles.css.map */
