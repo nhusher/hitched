@@ -78,7 +78,7 @@ header {
     
     em {
       font-family: $abril;
-      font-style: normal;
+      font-style: italic;
       font-weight: normal;
     }
   }
@@ -124,8 +124,7 @@ header {
   }
 }
 
-
-body > section {
+section {
   min-height: 100vh;
   padding: 5vh;
   box-sizing: border-box;

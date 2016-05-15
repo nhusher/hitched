@@ -8,7 +8,11 @@
     "url": "https://github.com/nhusher/hitched.git"
   },
   "homepage": "http://nickandsia.com",
-  "scripts": {},
+  "scripts": {
+    "development": "gulp watch-css & webpack -wd",
+    "deploy": "NODE_ENV=production webpack -d && gulp minify-css",
+    "clean": "gulp clean"
+  },
   "dependencies": {},
   "devDependencies": {
     "babel": "^6.5.2",
@@ -37,7 +41,7 @@
     "react-addons-css-transition-group": "^15.0.1",
     "react-addons-pure-render-mixin": "^15.0.1",
     "react-dom": "^15.0.2",
-    "react-motion": "^0.3.1",
+    "react-motion": "^0.4.3",
     "webpack": "^1.12.14"
   }
 }

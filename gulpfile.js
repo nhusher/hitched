@@ -13,14 +13,13 @@ gulp.task('css', [], () =>
         .pipe(sourcemaps.write('./', { includeContent: false, sourceRoot: '../scss/' }))
         .pipe(gulp.dest('./css')));
 
-gulp.task('watch-css', [], () => {
+gulp.task('watch-css', ['css'], () => {
   gulp.watch('./app/scss/**/*', ['css']);
 });
 
-gulp.task('minify-css', ['css'], () => {
-  return gulp.src('./css/*.css')
+gulp.task('minify-css', ['css'], () =>
+    gulp.src('./css/*.css')
       .pipe(cleanCSS())
-      .pipe(gulp.dest('./css/'));
-});
+      .pipe(gulp.dest('./css/')));
 
 gulp.task('clean', [], () => del(['./js/hitched.build.js', './js/hitched.js.map', './css']));

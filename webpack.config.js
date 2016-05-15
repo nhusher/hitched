@@ -11,10 +11,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': `"${NODE_ENV}"`
-    }),
-    new webpack.SourceMapDevToolPlugin({
-      filename: './js/[name].js.map'
-    }),
+    })
   ].concat(NODE_ENV === 'production' ? new webpack.optimize.UglifyJsPlugin() : []),
   module: {
     loaders: [
