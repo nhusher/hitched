@@ -86,10 +86,14 @@ body > section {
   box-sizing: border-box;
   position: relative; }
 
+#schedule h3 {
+  font-style: italic; }
 #schedule ol {
   list-style: none;
   margin: 0;
   padding: 0; }
+#schedule .at-a-glance {
+  display: flex; }
 
 #nearby {
   display: none; }

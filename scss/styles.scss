@@ -133,11 +133,19 @@ body > section {
 }
 
 #schedule {
+  h3 {
+    font-style: italic;
+  }
   ol {
     list-style: none;
     margin: 0;
     padding: 0;
   }
+
+  .at-a-glance {
+    display: flex;
+  }
+
   .days {
 
   }
