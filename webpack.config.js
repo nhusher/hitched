@@ -3,13 +3,14 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
   entry: {
-    app: './js/hitched.js'
+    hitched: './js/hitched.js'
   },
   output: {
     filename: './js/[name].build.js'
   },
   plugins: [
     new webpack.DefinePlugin({
+      'process.env.NODE_ENV': `"${NODE_ENV}"`
     }),
     new webpack.SourceMapDevToolPlugin({
       filename: './js/[name].js.map'

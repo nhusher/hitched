@@ -23,4 +23,4 @@ gulp.task('minify-css', ['css'], () => {
       .pipe(gulp.dest('./css/'));
 });
 
-gulp.task('clean', [], () => del(['./js/hitched.build.js', './css']));
+gulp.task('clean', [], () => del(['./js/hitched.build.js', './js/hitched.js.map', './css']));

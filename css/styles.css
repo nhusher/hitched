@@ -12,9 +12,16 @@ a {
 
 header {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
   color: white;
   min-height: 100vh;
@@ -38,7 +45,9 @@ header {
       color: white; }
   header h1 {
     font-family: "estilo-pro";
-    font-feature-settings: "salt", "swsh";
+    -webkit-font-feature-settings: "salt", "swsh";
+       -moz-font-feature-settings: "salt", "swsh";
+            font-feature-settings: "salt", "swsh";
     margin: 0;
     padding: 0;
     font-weight: 100;
@@ -48,7 +57,7 @@ header {
       white-space: nowrap; }
     header h1 em {
       font-family: "abril-text";
-      font-style: none;
+      font-style: normal;
       font-weight: normal; }
   header nav {
     position: absolute;
@@ -58,15 +67,22 @@ header {
     padding: 5vh;
     font-family: "estilo-pro";
     text-transform: uppercase;
-    font-feature-settings: auto;
+    -webkit-font-feature-settings: auto;
+       -moz-font-feature-settings: auto;
+            font-feature-settings: auto;
     letter-spacing: 0.1rem; }
     header nav ul {
       list-style: none;
       margin: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: center; }
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
     header nav li {
-      flex-basis: 25%; }
+      -ms-flex-preferred-size: 25%;
+          flex-basis: 25%; }
   header .date {
     margin: 20vh 0 0;
     font-size: 200%; }
@@ -88,11 +104,15 @@ body > section {
 
 #schedule h3 {
   font-style: italic; }
+
 #schedule ol {
   list-style: none;
   margin: 0;
   padding: 0; }
+
 #schedule .at-a-glance {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex; }
 
 #nearby {
