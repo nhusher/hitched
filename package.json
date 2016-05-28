@@ -9,7 +9,7 @@
   },
   "homepage": "http://nickandsia.com",
   "scripts": {
-    "development": "gulp watch-css & webpack -wd",
+    "development": "static . & gulp watch-css & webpack -wd",
     "deploy": "NODE_ENV=production webpack -d && gulp minify-css",
     "clean": "gulp clean"
   },

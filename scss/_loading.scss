@@ -1,0 +1,31 @@
+@import '_config';
+
+#loading {
+  display: none;
+  background-color: $lilac;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  img {
+    display: block;
+    height: 100px;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 2vh;
+    bottom: 2vh;
+    left: 2vh;
+    right: 2vh;
+    border: 2px solid $white;
+    pointer-events: none;
+  }
+}
+
+#main:empty + #loading {
+  display: flex;
+}

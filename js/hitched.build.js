@@ -63,7 +63,61 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_reactDom2.default.render(_react2.default.createElement(_Root2.default, null), document.querySelector('#main'));
+	function reloadStyles() {
+	  return new Promise(function (resolve) {
+	    var s = document.getElementById('styles'),
+	        url = '/css/styles.css',
+	        newStyles = document.createElement('link');
+	
+	    newStyles.href = url + '?bust=' + Date.now();
+	    newStyles.rel = 'stylesheet';
+	    newStyles.addEventListener('load', function () {
+	      s.parentNode.removeChild(s);
+	      newStyles.id = 'styles';
+	      resolve();
+	    });
+	    s.parentNode.insertBefore(newStyles, s);
+	  });
+	}
+	
+	function reloadScripts() {
+	  return new Promise(function (resolve) {
+	    var s = document.getElementById('scripts'),
+	        url = '/js/hitched.build.js',
+	        newScript = document.createElement('script');
+	
+	    newScript.src = url + '?bust=' + Date.now();
+	    newScript.addEventListener('load', function () {
+	      s.parentNode.removeChild(s);
+	      newScript.id = 'scripts';
+	      resolve();
+	    });
+	    s.parentNode.insertBefore(newScript, s);
+	  });
+	}
+	
+	function boot() {
+	  _reactDom2.default.render(_react2.default.createElement(_Root2.default, null), document.querySelector('#main'));
+	
+	  if (true) {
+	    reloadStyles().then(function () {
+	      return setTimeout(boot, 1000);
+	    });
+	    //setTimeout(reloadScripts, 4000);
+	  }
+	}
+	
+	if (!window.FONTS_LOADED) {
+	  Typekit.load({
+	    async: false,
+	    active: function active() {
+	      window.FONTS_LOADED = true;
+	      boot();
+	    }
+	  });
+	} else {
+	  boot();
+	}
 
 /***/ },
 /* 1 */
@@ -20529,6 +20583,11 @@
 	  );
 	}
 	
+	RootUI.propTypes = {
+	  height: _react2.default.PropTypes.number,
+	  scroll: _react2.default.PropTypes.number
+	};
+	
 	var Root = function (_React$Component) {
 	  _inherits(Root, _React$Component);
 	
@@ -20602,12 +20661,6 @@
 	    opacity: (0, _reactMotion.spring)(1, { stiffness: 60 })
 	  };
 	
-	  // TODO:
-	  //let s2 = {
-	  //  offset:  spring(Math.min(scroll, height) * 0.1, { stiffness: 50, damping: 12 }),
-	  //  opacity: spring(1, { stiffness: 60 })
-	  //};
-	
 	  return _react2.default.createElement(
 	    'header',
 	    null,
@@ -20677,8 +20730,8 @@
 	              null,
 	              _react2.default.createElement(
 	                'a',
-	                { href: '#accommodations' },
-	                'Accommodations'
+	                { href: '#directions' },
+	                'Directions'
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -20686,8 +20739,8 @@
 	              null,
 	              _react2.default.createElement(
 	                'a',
-	                { href: '#directions' },
-	                'Directions'
+	                { href: '#registry' },
+	                'Registry'
 	              )
 	            ),
 	            _react2.default.createElement(
@@ -22375,28 +22428,65 @@
 	      'Schedule for the weekend'
 	    ),
 	    _react2.default.createElement(
-	      'h3',
-	      null,
-	      'At a glance'
-	    ),
-	    _react2.default.createElement(
 	      'ol',
 	      { className: 'at-a-glance' },
 	      _react2.default.createElement(
 	        'li',
 	        null,
-	        '4pm cocktails in the garden'
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          '4pm'
+	        ),
+	        _react2.default.createElement(
+	          'h5',
+	          null,
+	          'Cocktails'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'in the garden'
+	        )
 	      ),
 	      _react2.default.createElement(
 	        'li',
 	        null,
-	        '5pm ceremony'
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          '5pm'
+	        ),
+	        _react2.default.createElement(
+	          'h5',
+	          null,
+	          'Ceremony'
+	        )
 	      ),
 	      _react2.default.createElement(
 	        'li',
 	        null,
-	        '6pm dinner (cash bar after 7pm)'
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          '6pm'
+	        ),
+	        _react2.default.createElement(
+	          'h5',
+	          null,
+	          'Dinner'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'cash bar after 7pm'
+	        )
 	      )
+	    ),
+	    _react2.default.createElement(
+	      'h2',
+	      null,
+	      'Staying at the Inn?'
 	    ),
 	    _react2.default.createElement(
 	      'ol',
@@ -22425,7 +22515,11 @@
 	              null,
 	              '5pm'
 	            ),
-	            'Out of town guests may check into the inn'
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Guests may check into the inn'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'li',
@@ -22435,7 +22529,16 @@
 	              null,
 	              '6pm'
 	            ),
-	            '"Rehearsal Dinner" (byob)'
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Friday Dinner',
+	              _react2.default.createElement(
+	                'i',
+	                null,
+	                'BYOB'
+	              )
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'li',
@@ -22445,7 +22548,11 @@
 	              null,
 	              '8pm'
 	            ),
-	            'Board games and carrying on'
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Board games and carrying on'
+	            )
 	          )
 	        )
 	      ),
@@ -22471,9 +22578,13 @@
 	            _react2.default.createElement(
 	              'strong',
 	              null,
-	              '9am-??am'
+	              '8am-11am'
 	            ),
-	            ' Breakfast'
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Breakfast'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'li',
@@ -22481,9 +22592,13 @@
 	            _react2.default.createElement(
 	              'strong',
 	              null,
-	              '??am-4pm'
+	              '11am-4pm'
 	            ),
-	            ' Go have fun!'
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Go have fun!'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'li',
@@ -22493,7 +22608,11 @@
 	              null,
 	              '4pm'
 	            ),
-	            ' Cocktails in the garden'
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Cocktails in the garden'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'li',
@@ -22503,7 +22622,11 @@
 	              null,
 	              '5pm'
 	            ),
-	            ' Ceremony'
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Ceremony'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'li',
@@ -22513,7 +22636,16 @@
 	              null,
 	              '6pm'
 	            ),
-	            ' Dinner cash bar after 7'
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Dinner',
+	              _react2.default.createElement(
+	                'i',
+	                null,
+	                'Cash bar after 7'
+	              )
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'li',
@@ -22523,7 +22655,11 @@
 	              null,
 	              '8pm'
 	            ),
-	            ' After-dinner amusements'
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'After-dinner amusements'
+	            )
 	          )
 	        )
 	      ),
@@ -22549,7 +22685,7 @@
 	            _react2.default.createElement(
 	              'strong',
 	              null,
-	              '9am-??am'
+	              '8am-11am'
 	            ),
 	            ' Breakfast'
 	          ),
@@ -22559,7 +22695,7 @@
 	            _react2.default.createElement(
 	              'strong',
 	              null,
-	              '11'
+	              '11am'
 	            ),
 	            ' Check-out'
 	          )

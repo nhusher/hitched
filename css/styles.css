@@ -10,11 +10,55 @@ body {
 a {
   color: #68578e; }
 
+section {
+  min-height: 100vh;
+  padding: 5vh;
+  box-sizing: border-box;
+  position: relative; }
+
+#loading {
+  display: none;
+  background-color: #68578e;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center; }
+  #loading img {
+    display: block;
+    height: 100px;
+    width: auto;
+    margin: 0 auto; }
+  #loading:before {
+    content: "";
+    position: absolute;
+    top: 2vh;
+    bottom: 2vh;
+    left: 2vh;
+    right: 2vh;
+    border: 2px solid white;
+    pointer-events: none; }
+
+#main:empty + #loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
 header {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
   color: white;
   min-height: 100vh;
@@ -38,7 +82,9 @@ header {
       color: white; }
   header h1 {
     font-family: "estilo-pro";
-    font-feature-settings: "salt", "swsh";
+    -webkit-font-feature-settings: "salt", "swsh";
+       -moz-font-feature-settings: "salt", "swsh";
+            font-feature-settings: "salt", "swsh";
     margin: 0;
     padding: 0;
     font-weight: 100;
@@ -58,15 +104,23 @@ header {
     padding: 5vh;
     font-family: "estilo-pro";
     text-transform: uppercase;
-    font-feature-settings: auto;
+    -webkit-font-feature-settings: auto;
+       -moz-font-feature-settings: auto;
+            font-feature-settings: auto;
     letter-spacing: 0.1rem; }
     header nav ul {
       list-style: none;
+      padding: 0;
       margin: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: center; }
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
     header nav li {
-      flex-basis: 25%; }
+      -ms-flex-preferred-size: 25%;
+          flex-basis: 25%; }
   header .date {
     margin: 20vh 0 0;
     font-size: 200%; }
@@ -80,22 +134,125 @@ header {
       max-height: 5vh;
       max-width: 10vh; }
 
-section {
-  min-height: 100vh;
-  padding: 5vh;
-  box-sizing: border-box;
-  position: relative; }
+@media (max-width: 700px) {
+  header .date {
+    margin: 10vh; }
+  header nav ul {
+    display: block; } }
 
-#schedule h3 {
-  font-style: italic; }
-#schedule ol {
+#schedule ol, #schedule ul {
   list-style: none;
   margin: 0;
   padding: 0; }
-#schedule .at-a-glance {
-  display: flex; }
 
-#nearby {
-  display: none; }
+#schedule h2 {
+  text-align: center;
+  font-size: 36pt;
+  font-family: "estilo-pro";
+  color: #68578e;
+  font-weight: 100; }
+
+#schedule h2 ~ h2 {
+  margin: 64px auto 16px; }
+
+#schedule .at-a-glance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top: 2px solid #68578e;
+  border-bottom: 2px solid #68578e;
+  margin: 0 auto;
+  padding: 40px;
+  width: 480px; }
+  #schedule .at-a-glance li {
+    width: 33%;
+    text-align: center; }
+    #schedule .at-a-glance li h4 {
+      font-family: "estilo-pro";
+      font-size: 36pt;
+      font-weight: 400;
+      margin: 0 0 16px;
+      padding: 0;
+      color: #68578e; }
+    #schedule .at-a-glance li h5 {
+      font-family: "abril-text";
+      margin: 0 0 8px;
+      padding: 0;
+      font-size: 16pt;
+      font-weight: normal;
+      -webkit-font-feature-settings: "dlig";
+         -moz-font-feature-settings: "dlig";
+              font-feature-settings: "dlig"; }
+    #schedule .at-a-glance li p {
+      font-size: 12pt;
+      margin: 0;
+      padding: 0;
+      font-style: italic; }
+
+#schedule .days {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around; }
+  #schedule .days > li {
+    min-width: 30%;
+    max-width: 120px; }
+  #schedule .days h3 {
+    font-family: "estilo-pro";
+    font-weight: 400;
+    font-size: 28pt; }
+    #schedule .days h3 i {
+      font-style: normal;
+      color: #68578e;
+      margin-left: 8px; }
+  #schedule .days .day li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+    border-bottom: 1px solid #68578e;
+    padding: 4px 0; }
+    #schedule .days .day li:last-child {
+      border: none; }
+  #schedule .days .day strong {
+    display: block;
+    font-weight: normal;
+    font-family: "estilo-pro";
+    font-size: 16pt;
+    margin: 0;
+    padding: 0;
+    width: 96px; }
+  #schedule .days .day p {
+    display: block;
+    margin: 0;
+    padding: 0; }
+    #schedule .days .day p i {
+      display: block; }
+
+@media (max-width: 700px) {
+  #schedule .days {
+    display: block; }
+    #schedule .days h3 {
+      text-align: center;
+      margin: 48px 0 0; }
+    #schedule .days > li {
+      max-width: none;
+      min-width: 0; }
+    #schedule .days .day li {
+      padding: 16px 0; } }
 
 /*# sourceMappingURL=styles.css.map */

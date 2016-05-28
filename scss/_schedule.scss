@@ -1,0 +1,138 @@
+@import '_config';
+
+#schedule {
+  ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 36pt;
+    font-family: $estilo;
+    color: $lilac;
+    font-weight: 100;
+  }
+
+  h2 ~ h2 {
+    margin: g(8) auto g(2);
+  }
+
+  .at-a-glance {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-top: 2px solid $lilac;
+    border-bottom: 2px solid $lilac;
+    margin: 0 auto;
+    padding: g(5);
+    width: g(60); // todo: responsive
+
+    li {
+      width: 33%;
+      text-align: center;
+
+      h4 {
+        font-family: $estilo;
+        font-size: 36pt;
+        font-weight: 400;
+        margin: 0 0 g(2);
+        padding: 0;
+        color: $lilac;
+      }
+      h5 {
+        font-family: $abril;
+        margin: 0 0 g(1);
+        padding: 0;
+        font-size: 16pt;
+        font-weight: normal;
+        font-feature-settings: "dlig";
+      }
+      p {
+        font-size: 12pt;
+        margin: 0;
+        padding: 0;
+        font-style: italic;
+      }
+    }
+  }
+
+  .days {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    & > li {
+      min-width: 30%;
+      max-width: g(15);
+    }
+
+    h3 {
+      font-family: $estilo;
+      font-weight: 400;
+      font-size: 28pt;
+
+      i {
+        font-style: normal;
+        color: $lilac;
+        margin-left: g(1);
+      }
+    }
+
+    .day {
+      li {
+        display: flex;
+        align-items: baseline;
+        border-bottom: 1px solid $lilac;
+        padding: g(0.5) 0;
+
+        &:last-child {
+          border: none;
+        }
+      }
+      strong {
+        display: block;
+        font-weight: normal;
+        font-family: $estilo;
+        font-size: 16pt;
+        margin: 0;
+        padding: 0;
+        width: g(12);
+      }
+      p {
+        display: block;
+        margin: 0;
+        padding: 0;
+
+        i {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  #schedule {
+    .days {
+      display: block;
+
+      h3 {
+        text-align: center;
+        margin: g(6) 0 0;
+      }
+
+      & > li {
+        max-width: none;
+        min-width: 0;
+      }
+
+      .day {
+        li {
+          padding: g(2) 0;
+        }
+      }
+    }
+  }
+}

@@ -10,28 +10,44 @@ export default function Schedule({ scroll, height }) {
   return (<section id="schedule">
     <h2>Schedule for the weekend</h2>
 
-    <h3>At a glance</h3>
     <ol className="at-a-glance">
-      <li>4pm cocktails in the garden</li>
-      <li>5pm ceremony</li>
-      <li>6pm dinner (cash bar after 7pm)</li>
+      <li>
+        <h4>4pm</h4>
+        <h5>Cocktails</h5>
+        <p>in the garden</p>
+      </li>
+      <li>
+        <h4>5pm</h4>
+        <h5>Ceremony</h5>
+      </li>
+      <li>
+        <h4>6pm</h4>
+        <h5>Dinner</h5>
+        <p>cash bar after 7pm</p>
+      </li>
     </ol>
 
+    <h2>Staying at the Inn?</h2>
     <ol className="days">
       <li className="friday">
         <h3>Friday <i>8th</i></h3>
         <ol className="day">
           <li className="guests">
             <strong>5pm</strong>
-            Out of town guests may check into the inn
+            <p>Guests may check into the inn</p>
           </li>
           <li className="guests">
             <strong>6pm</strong>
-            "Rehearsal Dinner" (byob)
+            <p>
+              Friday Dinner
+              <i>BYOB</i>
+            </p>
           </li>
           <li className="guests">
             <strong>8pm</strong>
-            Board games and carrying on
+            <p>
+              Board games and carrying on
+            </p>
           </li>
         </ol>
       </li>
@@ -39,23 +55,33 @@ export default function Schedule({ scroll, height }) {
         <h3>Saturday <i>9th</i></h3>
         <ol className="day">
           <li className="guests">
-            <strong>9am-??am</strong> Breakfast
+            <strong>8am-11am</strong>
+            <p>Breakfast</p>
           </li>
           <li className="guests">
-            <strong>??am-4pm</strong> Go have fun!
+            <strong>11am-4pm</strong>
+            <p>Go have fun!</p>
           </li>
           <li className="everyone">
-            <strong>4pm</strong> Cocktails in the garden
+            <strong>4pm</strong>
+            <p>Cocktails in the garden</p>
           </li>
           <li className="everyone">
-            <strong>5pm</strong> Ceremony
+            <strong>5pm</strong>
+            <p>Ceremony</p>
           </li>
           <li className="everyone">
-            <strong>6pm</strong> Dinner
-            cash bar after 7
+            <strong>6pm</strong>
+            <p>
+              Dinner
+              <i>Cash bar after 7</i>
+            </p>
           </li>
           <li className="everyone">
-            <strong>8pm</strong> After-dinner amusements
+            <strong>8pm</strong>
+            <p>
+              After-dinner amusements
+            </p>
           </li>
         </ol>
       </li>
@@ -63,10 +89,10 @@ export default function Schedule({ scroll, height }) {
         <h3>Sunday <i>10th</i></h3>
         <ol className="day">
           <li className="guests">
-            <strong>9am-??am</strong> Breakfast
+            <strong>8am-11am</strong> Breakfast
           </li>
           <li className="guests">
-            <strong>11</strong> Check-out
+            <strong>11am</strong> Check-out
           </li>
         </ol>
       </li>

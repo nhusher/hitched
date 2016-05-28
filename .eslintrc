@@ -5,5 +5,8 @@
     "key-spacing": ["error", { "align": "value" }],
     "no-multi-spaces": [ "error", { "exceptions": { "VariableDeclarator": true }}],
     "one-var": 0
+  },
+  "globals": {
+    "Typekit": false
   }
 }

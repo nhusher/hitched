@@ -10,6 +10,11 @@ function RootUI({ scroll, height }) {
     </div>);
 }
 
+RootUI.propTypes = {
+  height: React.PropTypes.number,
+  scroll: React.PropTypes.number
+};
+
 export default class Root extends React.Component {
   constructor(...args) {
     super(...args);

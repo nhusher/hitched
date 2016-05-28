@@ -1,0 +1,14 @@
+$grid: 8px;
+
+@function g($m) { @return $grid * $m; }
+
+$standard-font-size: g(2);
+$standard-line-height: g(3);
+
+$abril: "abril-text";
+$estilo: "estilo-pro";
+
+$lilac: #68578e;
+$grass: #7fad43;
+$slate: #588bac;
+$white: white;

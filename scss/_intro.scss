@@ -1,0 +1,107 @@
+
+header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: $white;
+  min-height: 100vh;
+  background: $lilac;
+  background-size: auto 30%;
+  padding: 5vh;
+  box-sizing: border-box;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 2vh;
+    bottom: 2vh;
+    left: 2vh;
+    right: 2vh;
+    border: 2px solid $white;
+    pointer-events: none;
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+
+    &:visited {
+      color: $white;
+    }
+  }
+
+  h1 {
+    font-family: $estilo;
+    font-feature-settings: "salt", "swsh";
+    margin: 0;
+    padding: 0;
+    font-weight: 100;
+    font-size: $standard-font-size * 4;
+    line-height: 1;
+
+    span {
+      white-space: nowrap;
+    }
+
+    em {
+      font-family: $abril;
+      font-style: italic;
+      font-weight: normal;
+    }
+  }
+
+
+  nav {
+    position: absolute;
+    bottom: 10vh;
+    left: 0;
+    right: 0;
+    padding: 5vh;
+    font-family: $estilo;
+    text-transform: uppercase;
+    font-feature-settings: auto; // "salt";
+    letter-spacing: 0.1rem;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    li {
+      flex-basis: 25%;
+    }
+  }
+
+  .date {
+    margin: 20vh 0 0;
+    font-size: 200%;
+  }
+  .next {
+    position: absolute;
+    bottom: 5vh;
+    left: 0;
+    right: 0;
+    margin: 0;
+    img {
+      max-height: 5vh;
+      max-width: 10vh;
+    }
+  }
+}
+@media (max-width: 700px) {
+  header {
+    .date {
+      margin: 10vh;
+    }
+    nav {
+      ul {
+        display: block;
+      }
+    }
+  }
+}

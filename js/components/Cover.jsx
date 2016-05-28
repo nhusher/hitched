@@ -7,12 +7,6 @@ export default function Cover({ scroll, height }) {
     opacity: spring(1, { stiffness: 60 })
   };
 
-  // TODO:
-  //let s2 = {
-  //  offset:  spring(Math.min(scroll, height) * 0.1, { stiffness: 50, damping: 12 }),
-  //  opacity: spring(1, { stiffness: 60 })
-  //};
-
   return (<header>
     <Motion defaultStyle={{ offset: -100, opacity: 0 }} style={springs}>
       {s => (
@@ -33,8 +27,8 @@ export default function Cover({ scroll, height }) {
         <nav style={{ transform: `translateY(${s.offset}px)`, opacity: s.opacity }}>
           <ul>
             <li><a href="#schedule">Schedule</a></li>
-            <li><a href="#accommodations">Accommodations</a></li>
             <li><a href="#directions">Directions</a></li>
+            <li><a href="#registry">Registry</a></li>
             <li><a href="#nearby">Nearby</a></li>
           </ul>
         </nav>)}
