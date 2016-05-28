@@ -1,12 +1,6 @@
 import React from 'react';
-import { Motion, spring } from 'react-motion';
 
-export default function Schedule({ scroll, height }) {
-  let springs = {
-    offset:  spring(0, { stiffness: 50, damping: 12 }),
-    opacity: spring(1, { stiffness: 60 })
-  };
-
+export default function Schedule() {
   return (<section id="schedule">
     <h2>Schedule for the weekend</h2>
 
@@ -99,8 +93,3 @@ export default function Schedule({ scroll, height }) {
     </ol>
   </section>);
 }
-
-Schedule.propTypes = {
-  height: React.PropTypes.number,
-  scroll: React.PropTypes.number
-};

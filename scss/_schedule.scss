@@ -115,6 +115,19 @@
 
 @media (max-width: 700px) {
   #schedule {
+    .at-a-glance {
+      flex-direction: column;
+      width: auto;
+
+      li {
+        width: auto;
+        margin: g(3) 0;
+        h4 {
+          line-height: 0.5;
+          margin: 0;
+        }
+      }
+    }
     .days {
       display: block;
 

@@ -19,4 +19,24 @@ section {
   padding: 5vh;
   box-sizing: border-box;
   position: relative;
+
+  ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 36pt;
+    font-family: $estilo;
+    color: $lilac;
+    font-weight: 100;
+    line-height: 1;
+  }
+
+  h2 ~ h2 {
+    margin: g(8) auto g(2);
+  }
+
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Cover from './Cover';
 import Schedule from './Schedule';
+import Directions from './Directions';
 
 function RootUI({ scroll, height }) {
   return (

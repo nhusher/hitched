@@ -1,1 +1,288 @@
-#loading,header{-webkit-box-orient:vertical;-webkit-box-direction:normal;text-align:center}header,section{position:relative;min-height:100vh;box-sizing:border-box;padding:5vh}header,header a,header a:visited{color:#fff}body,header h1,header nav ul,html{margin:0;padding:0}#loading,#schedule h2,header{text-align:center}html{font:16px/24px abril-text}a{color:#68578e}#loading{display:none;background-color:#68578e;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}#loading img{display:block;height:100px;width:auto;margin:0 auto}#loading:before,header:before{content:"";position:absolute;top:2vh;bottom:2vh;left:2vh;right:2vh;border:2px solid #fff;pointer-events:none}#main:empty+#loading{display:-webkit-box;display:-ms-flexbox;display:flex}header,header nav ul{display:-webkit-box;display:-ms-flexbox}header{display:flex;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;background:#68578e;background-size:auto 30%}header .next,header nav{position:absolute;left:0;right:0}header a{text-decoration:none}header h1{font-family:estilo-pro;-webkit-font-feature-settings:"salt","swsh";-moz-font-feature-settings:"salt","swsh";font-feature-settings:"salt","swsh";font-weight:100;font-size:64px;line-height:1}header h1 span{white-space:nowrap}header h1 em{font-family:abril-text;font-style:italic;font-weight:400}header nav{bottom:10vh;padding:5vh;font-family:estilo-pro;text-transform:uppercase;-webkit-font-feature-settings:auto;-moz-font-feature-settings:auto;font-feature-settings:auto;letter-spacing:.1rem}header nav ul{list-style:none;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}header nav li{-ms-flex-preferred-size:25%;flex-basis:25%}header .date{margin:20vh 0 0;font-size:200%}#schedule .at-a-glance li h4,#schedule h2{font-family:estilo-pro;font-size:36pt;color:#68578e}header .next{bottom:5vh;margin:0}header .next img{max-height:5vh;max-width:10vh}@media (max-width:700px){header .date{margin:10vh}header nav ul{display:block}}#schedule .at-a-glance,#schedule .days{display:-webkit-box;display:-ms-flexbox;-webkit-box-orient:horizontal;-webkit-box-direction:normal}#schedule ol,#schedule ul{list-style:none;margin:0;padding:0}#schedule h2{font-weight:100}#schedule h2~h2{margin:64px auto 16px}#schedule .at-a-glance{display:flex;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;border-top:2px solid #68578e;border-bottom:2px solid #68578e;margin:0 auto;padding:40px;width:480px}#schedule .at-a-glance li{width:33%;text-align:center}#schedule .at-a-glance li h4{font-weight:400;margin:0 0 16px;padding:0}#schedule .at-a-glance li h5{font-family:abril-text;margin:0 0 8px;padding:0;font-size:16pt;font-weight:400;-webkit-font-feature-settings:"dlig";-moz-font-feature-settings:"dlig";font-feature-settings:"dlig"}#schedule .days .day strong,#schedule .days h3{font-weight:400;font-family:estilo-pro}#schedule .at-a-glance li p{font-size:12pt;margin:0;padding:0;font-style:italic}#schedule .days{display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-pack:distribute;justify-content:space-around}#schedule .days>li{min-width:30%;max-width:120px}#schedule .days h3{font-size:28pt}#schedule .days h3 i{font-style:normal;color:#68578e;margin-left:8px}#schedule .days .day li{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;border-bottom:1px solid #68578e;padding:4px 0}#schedule .days .day p,#schedule .days .day strong{margin:0;padding:0;display:block}#schedule .days .day li:last-child{border:none}#schedule .days .day strong{font-size:16pt;width:96px}#schedule .days .day p i{display:block}@media (max-width:700px){#schedule .days{display:block}#schedule .days h3{text-align:center;margin:48px 0 0}#schedule .days>li{max-width:none;min-width:0}#schedule .days .day li{padding:16px 0}}
+html {
+  font: 16px / 24px "abril-text";
+  margin: 0;
+  padding: 0; }
+
+body {
+  padding: 0;
+  margin: 0; }
+
+a {
+  color: #68578e; }
+
+section {
+  min-height: 100vh;
+  padding: 5vh;
+  box-sizing: border-box;
+  position: relative; }
+  section ol, section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  section h2 {
+    text-align: center;
+    font-size: 36pt;
+    font-family: "estilo-pro";
+    color: #68578e;
+    font-weight: 100;
+    line-height: 1; }
+  section h2 ~ h2 {
+    margin: 64px auto 16px; }
+
+#loading {
+  display: none;
+  background-color: #68578e;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center; }
+  #loading img {
+    display: block;
+    height: 100px;
+    width: auto;
+    margin: 0 auto; }
+  #loading:before {
+    content: "";
+    position: absolute;
+    top: 2vh;
+    bottom: 2vh;
+    left: 2vh;
+    right: 2vh;
+    border: 2px solid white;
+    pointer-events: none; }
+
+#main:empty + #loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+header {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  color: white;
+  min-height: 100vh;
+  background: #68578e;
+  background-size: auto 30%;
+  padding: 5vh;
+  box-sizing: border-box; }
+  header:before {
+    content: "";
+    position: absolute;
+    top: 2vh;
+    bottom: 2vh;
+    left: 2vh;
+    right: 2vh;
+    border: 2px solid white;
+    pointer-events: none; }
+  header a {
+    color: white;
+    text-decoration: none; }
+    header a:visited {
+      color: white; }
+  header h1 {
+    font-family: "estilo-pro";
+    -webkit-font-feature-settings: "salt", "swsh";
+       -moz-font-feature-settings: "salt", "swsh";
+            font-feature-settings: "salt", "swsh";
+    margin: 0;
+    padding: 0;
+    font-weight: 100;
+    font-size: 64px;
+    line-height: 1; }
+    header h1 span {
+      white-space: nowrap; }
+    header h1 em {
+      font-family: "abril-text";
+      font-style: italic;
+      font-weight: normal; }
+  header nav {
+    position: absolute;
+    bottom: 10vh;
+    left: 0;
+    right: 0;
+    padding: 5vh;
+    font-family: "estilo-pro";
+    text-transform: uppercase;
+    -webkit-font-feature-settings: auto;
+       -moz-font-feature-settings: auto;
+            font-feature-settings: auto;
+    letter-spacing: 0.1rem; }
+    header nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+    header nav li {
+      -ms-flex-preferred-size: 25%;
+          flex-basis: 25%; }
+  header .date {
+    margin: 20vh 0 0;
+    font-size: 200%; }
+  header .next {
+    position: absolute;
+    bottom: 5vh;
+    left: 0;
+    right: 0;
+    margin: 0; }
+    header .next img {
+      max-height: 5vh;
+      max-width: 10vh; }
+
+@media (max-width: 700px) {
+  header h1 {
+    font-size: 48px; }
+    header h1 em {
+      display: block; }
+  header .date {
+    font-size: 32px;
+    margin: 10vh auto; }
+  header nav ul {
+    display: block; } }
+
+#schedule ol, #schedule ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+#schedule h2 {
+  text-align: center;
+  font-size: 36pt;
+  font-family: "estilo-pro";
+  color: #68578e;
+  font-weight: 100; }
+
+#schedule h2 ~ h2 {
+  margin: 64px auto 16px; }
+
+#schedule .at-a-glance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-top: 2px solid #68578e;
+  border-bottom: 2px solid #68578e;
+  margin: 0 auto;
+  padding: 40px;
+  width: 480px; }
+  #schedule .at-a-glance li {
+    width: 33%;
+    text-align: center; }
+    #schedule .at-a-glance li h4 {
+      font-family: "estilo-pro";
+      font-size: 36pt;
+      font-weight: 400;
+      margin: 0 0 16px;
+      padding: 0;
+      color: #68578e; }
+    #schedule .at-a-glance li h5 {
+      font-family: "abril-text";
+      margin: 0 0 8px;
+      padding: 0;
+      font-size: 16pt;
+      font-weight: normal;
+      -webkit-font-feature-settings: "dlig";
+         -moz-font-feature-settings: "dlig";
+              font-feature-settings: "dlig"; }
+    #schedule .at-a-glance li p {
+      font-size: 12pt;
+      margin: 0;
+      padding: 0;
+      font-style: italic; }
+
+#schedule .days {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around; }
+  #schedule .days > li {
+    min-width: 30%;
+    max-width: 120px; }
+  #schedule .days h3 {
+    font-family: "estilo-pro";
+    font-weight: 400;
+    font-size: 28pt; }
+    #schedule .days h3 i {
+      font-style: normal;
+      color: #68578e;
+      margin-left: 8px; }
+  #schedule .days .day li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+    border-bottom: 1px solid #68578e;
+    padding: 4px 0; }
+    #schedule .days .day li:last-child {
+      border: none; }
+  #schedule .days .day strong {
+    display: block;
+    font-weight: normal;
+    font-family: "estilo-pro";
+    font-size: 16pt;
+    margin: 0;
+    padding: 0;
+    width: 96px; }
+  #schedule .days .day p {
+    display: block;
+    margin: 0;
+    padding: 0; }
+    #schedule .days .day p i {
+      display: block; }
+
+@media (max-width: 700px) {
+  #schedule .at-a-glance {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: auto; }
+    #schedule .at-a-glance li {
+      width: auto;
+      margin: 24px 0; }
+      #schedule .at-a-glance li h4 {
+        line-height: 0.5;
+        margin: 0; }
+  #schedule .days {
+    display: block; }
+    #schedule .days h3 {
+      text-align: center;
+      margin: 48px 0 0; }
+    #schedule .days > li {
+      max-width: none;
+      min-width: 0; }
+    #schedule .days .day li {
+      padding: 16px 0; } }
+
+/*# sourceMappingURL=styles.css.map */
