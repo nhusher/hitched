@@ -12,7 +12,9 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': `"${NODE_ENV}"`
     })
-  ].concat(NODE_ENV === 'production' ? new webpack.optimize.UglifyJsPlugin() : []),
+  ].concat(NODE_ENV === 'production' ? new webpack.optimize.UglifyJsPlugin({
+    comments: false
+  }) : []),
   module: {
     loaders: [
       { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader' }
