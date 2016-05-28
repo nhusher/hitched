@@ -40,3 +40,12 @@ section {
   }
 
 }
+
+
+@media (max-width: 768px) {
+  section {
+    h2 {
+      font-weight: 400 !important;
+    }
+  }
+}
