@@ -5,7 +5,9 @@
   flex-direction: column;
 
   .inputs {
+    display: flex;
     text-align: center;
+    justify-content: center;
     flex-grow: 0;
     flex-shrink: 0;
 
@@ -16,7 +18,7 @@
       padding: g(2);
       border-radius: 4px 0 0 4px;
       font-family: $abril;
-      font-size: 14pt;
+      font-size: 13pt;
       cursor: pointer;
 
       &:focus {
@@ -46,7 +48,7 @@
 
       h3 {
         font-family: $estilo;
-        font-size: 24pt;
+        font-size: 22pt;
         font-weight: 400;
         margin: 0;
         border-bottom: 2px solid $lilac;
@@ -64,6 +66,15 @@
       margin-left: g(1);
       flex-grow: 1;
       flex-basis: 50%;
+    }
+  }
+}
+
+@media (max-width: 300px) {
+  #directions .inputs {
+    flex-direction: column;
+    button {
+      border-radius: 0;
     }
   }
 }
