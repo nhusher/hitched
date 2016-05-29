@@ -289,4 +289,89 @@ header {
     #schedule .days .day li {
       padding: 16px 0; } }
 
+#directions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  #directions .inputs {
+    text-align: center;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    -ms-flex-negative: 0;
+        flex-shrink: 0; }
+    #directions .inputs button {
+      border: 0;
+      background: #68578e;
+      color: white;
+      padding: 16px;
+      border-radius: 4px 0 0 4px;
+      font-family: "abril-text";
+      font-size: 14pt;
+      cursor: pointer; }
+      #directions .inputs button:focus {
+        outline: none; }
+      #directions .inputs button.active {
+        background-color: #8170a8; }
+    #directions .inputs button + button {
+      border-radius: 0 4px 4px 0; }
+  #directions .direction-container {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    margin-top: 32px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    #directions .direction-container .directions-block {
+      -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      -ms-flex-preferred-size: 50%;
+          flex-basis: 50%;
+      margin-right: 8px;
+      padding: 8px 0; }
+      #directions .direction-container .directions-block h3 {
+        font-family: "estilo-pro";
+        font-size: 24pt;
+        font-weight: 400;
+        margin: 0;
+        border-bottom: 2px solid #68578e; }
+      #directions .direction-container .directions-block p {
+        font-style: italic; }
+      #directions .direction-container .directions-block li {
+        padding: 8px; }
+    #directions .direction-container .map-block {
+      margin-left: 8px;
+      -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      -ms-flex-preferred-size: 50%;
+          flex-basis: 50%; }
+
+@media (max-width: 1024px) {
+  #directions .direction-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    #directions .direction-container .map-block {
+      -webkit-box-ordinal-group: 2;
+          -ms-flex-order: 1;
+              order: 1;
+      height: 600px; }
+    #directions .direction-container .directions-block {
+      -webkit-box-ordinal-group: 3;
+          -ms-flex-order: 2;
+              order: 2;
+      margin-top: 32px; } }
+
+@media (max-width: 768px) {
+  #directions .map-block {
+    display: none; } }
+
 /*# sourceMappingURL=styles.css.map */

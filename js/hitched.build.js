@@ -20575,6 +20575,11 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	/*
+	 <Cover scroll={scroll} height={height} />
+	 <Schedule scroll={scroll} height={height} />
+	 */
+	
 	function RootUI(_ref) {
 	  var scroll = _ref.scroll;
 	  var height = _ref.height;
@@ -20583,7 +20588,8 @@
 	    'div',
 	    null,
 	    _react2.default.createElement(_Cover2.default, { scroll: scroll, height: height }),
-	    _react2.default.createElement(_Schedule2.default, { scroll: scroll, height: height })
+	    _react2.default.createElement(_Schedule2.default, { scroll: scroll, height: height }),
+	    _react2.default.createElement(_Directions2.default, { scroll: scroll, height: height })
 	  );
 	}
 	
@@ -22723,6 +22729,16 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var API_KEY = 'AIzaSyA-ZBKPhHjwWy_m-ugn06lKV5GbOrBM0Ok';
+	var BLUEBERRY_PLACE_ID = 'ChIJEUzdOpNHtUwRbQAI_K6QbLM';
+	var NORTH_PLACE_ID = 'ChIJ5VWbtlV6ykwRjkkOchnlX8M';
+	var MAP_STYLES = {};
+	
+	var latLng = function latLng(lat, lng) {
+	  return new google.maps.LatLng(lat, lng);
+	};
+	var waypoint = function waypoint(lat, lng) {
+	  return { location: latLng(lat, lng) };
+	};
 	
 	function FromNorth() {
 	  return _react2.default.createElement(
@@ -22864,6 +22880,15 @@
 	    return _this;
 	  }
 	
+	  Map.prototype.componentWillReceiveProps = function componentWillReceiveProps(_ref) {
+	    var direction = _ref.direction;
+	
+	    if (!this.initialized) return;
+	    if (direction === this.props.direction) return;
+	
+	    this.configureMapForDirection(direction);
+	  };
+	
 	  Map.prototype.addMapsScriptTag = function addMapsScriptTag() {
 	    var _this2 = this;
 	
@@ -22885,15 +22910,43 @@
 	  };
 	
 	  Map.prototype.initMap = function initMap() {
-	    console.log("MAPS READY");
+	    this.directionsService = new google.maps.DirectionsService();
+	    this.directionsDisplay = new google.maps.DirectionsRenderer();
+	
+	    this.map = new google.maps.Map(this.refs.map, {
+	      zoom: 7,
+	      center: new google.maps.LatLng(43.8905611, -73.0113264),
+	      mapTypeControl: false,
+	      scaleControl: false,
+	      streetViewControl: false,
+	      fullscreenControl: false,
+	      rotateControl: false
+	    });
+	    this.map.setOptions({ MAP_STYLES: MAP_STYLES });
+	
+	    this.directionsDisplay.setMap(this.map);
+	    this.configureMapForDirection(this.state.direction);
+	
+	    this.initialized = true;
+	  };
+	
+	  Map.prototype.configureMapForDirection = function configureMapForDirection(direction) {
+	    var _this3 = this;
+	
+	    this.directionsService.route({
+	      origin: direction === 'north' ? { placeId: NORTH_PLACE_ID } : latLng(43.634224, -72.327828),
+	      waypoints: direction === 'south' ? [waypoint(43.610691, -72.972626), waypoint(43.798103, -73.086451)] : [],
+	      destination: { placeId: BLUEBERRY_PLACE_ID },
+	      travelMode: google.maps.TravelMode.DRIVING
+	    }, function (result, status) {
+	      if (status === google.maps.DirectionsStatus.OK) {
+	        _this3.directionsDisplay.setDirections(result);
+	      }
+	    });
 	  };
 	
 	  Map.prototype.render = function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { ref: 'map' },
-	      this.props.direction
-	    );
+	    return _react2.default.createElement('div', { className: 'map-block', ref: 'map' });
 	  };
 	
 	  return Map;
@@ -22909,14 +22962,14 @@
 	      args[_key2] = arguments[_key2];
 	    }
 	
-	    var _this3 = _possibleConstructorReturn(this, _React$Component2.call.apply(_React$Component2, [this].concat(args)));
+	    var _this4 = _possibleConstructorReturn(this, _React$Component2.call.apply(_React$Component2, [this].concat(args)));
 	
-	    _this3.state = { direction: 'north' };
-	    return _this3;
+	    _this4.state = { direction: 'north' };
+	    return _this4;
 	  }
 	
 	  Directions.prototype.render = function render() {
-	    var _this4 = this;
+	    var _this5 = this;
 	
 	    var direction = this.state.direction;
 	
@@ -22933,21 +22986,31 @@
 	        { className: 'inputs' },
 	        _react2.default.createElement(
 	          'button',
-	          { onClick: function onClick() {
-	              return _this4.setState({ direction: 'north' });
-	            } },
+	          {
+	            className: direction === 'north' ? 'active' : '',
+	            onClick: function onClick() {
+	              return _this5.setState({ direction: 'north' });
+	            }
+	          },
 	          'Coming from the North'
 	        ),
 	        _react2.default.createElement(
 	          'button',
-	          { onClick: function onClick() {
-	              return _this4.setState({ direction: 'south' });
-	            } },
+	          {
+	            className: direction === 'south' ? 'active' : '',
+	            onClick: function onClick() {
+	              return _this5.setState({ direction: 'south' });
+	            }
+	          },
 	          'Coming from the South'
 	        )
 	      ),
-	      direction === 'north' ? _react2.default.createElement(FromNorth, null) : _react2.default.createElement(FromSouth, null),
-	      _react2.default.createElement(Map, { direction: this.state.direction })
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'direction-container' },
+	        direction === 'north' ? _react2.default.createElement(FromNorth, null) : _react2.default.createElement(FromSouth, null),
+	        _react2.default.createElement(Map, { direction: this.state.direction })
+	      )
 	    );
 	  };
 	

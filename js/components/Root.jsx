@@ -3,11 +3,17 @@ import Cover from './Cover';
 import Schedule from './Schedule';
 import Directions from './Directions';
 
+/*
+ <Cover scroll={scroll} height={height} />
+ <Schedule scroll={scroll} height={height} />
+ */
+
 function RootUI({ scroll, height }) {
   return (
     <div>
       <Cover scroll={scroll} height={height} />
       <Schedule scroll={scroll} height={height} />
+      <Directions scroll={scroll} height={height} />
     </div>);
 }
 

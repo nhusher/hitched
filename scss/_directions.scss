@@ -1,0 +1,93 @@
+@import 'config';
+
+#directions {
+  display: flex;
+  flex-direction: column;
+
+  .inputs {
+    text-align: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    button {
+      border: 0;
+      background: $lilac;
+      color: white;
+      padding: g(2);
+      border-radius: 4px 0 0 4px;
+      font-family: $abril;
+      font-size: 14pt;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+
+      &.active {
+        background-color: lighten($lilac, 10%);
+      }
+    }
+
+    button + button {
+      border-radius: 0 4px 4px 0;
+    }
+  }
+
+  .direction-container {
+    flex-grow: 1;
+    margin-top: g(4);
+
+    display: flex;
+    .directions-block {
+      flex-grow: 1;
+      flex-basis: 50%;
+      margin-right: g(1);
+      padding: g(1) 0;
+
+      h3 {
+        font-family: $estilo;
+        font-size: 24pt;
+        font-weight: 400;
+        margin: 0;
+        border-bottom: 2px solid $lilac;
+      }
+      p {
+        font-style: italic;
+      }
+
+      li {
+        padding: g(1);
+      }
+    }
+
+    .map-block {
+      margin-left: g(1);
+      flex-grow: 1;
+      flex-basis: 50%;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  #directions {
+    .direction-container {
+      flex-direction: column;
+      .map-block {
+        order: 1;
+        height: 600px;
+      }
+      .directions-block {
+        order: 2;
+        margin-top: g(4);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #directions {
+    .map-block {
+      display: none;
+    }
+  }
+}

@@ -1,6 +1,14 @@
 import React from 'react';
 
 const API_KEY = 'AIzaSyA-ZBKPhHjwWy_m-ugn06lKV5GbOrBM0Ok';
+const BLUEBERRY_PLACE_ID = 'ChIJEUzdOpNHtUwRbQAI_K6QbLM';
+const NORTH_PLACE_ID = 'ChIJ5VWbtlV6ykwRjkkOchnlX8M';
+const MAP_STYLES = {
+
+};
+
+const latLng = (lat, lng) => new google.maps.LatLng(lat, lng);
+const waypoint = (lat, lng) => ({ location: latLng(lat, lng) });
 
 function FromNorth() {
   return (
@@ -54,6 +62,13 @@ class Map extends React.Component {
 
     this.addMapsScriptTag();
   }
+  componentWillReceiveProps({ direction }) {
+    if (!this.initialized) return;
+    if (direction === this.props.direction) return;
+
+    this.configureMapForDirection(direction);
+  }
+
   addMapsScriptTag() {
     if (window.google) {
       this.initMaps();
@@ -72,10 +87,44 @@ class Map extends React.Component {
     }
   }
   initMap() {
-    console.log("MAPS READY");
+    this.directionsService = new google.maps.DirectionsService;
+    this.directionsDisplay = new google.maps.DirectionsRenderer;
+
+    this.map = new google.maps.Map(this.refs.map, {
+      zoom: 7,
+      center: new google.maps.LatLng(43.8905611, -73.0113264),
+      mapTypeControl: false,
+      scaleControl: false,
+      streetViewControl: false,
+      fullscreenControl: false,
+      rotateControl: false
+    });
+    this.map.setOptions({ MAP_STYLES });
+
+    this.directionsDisplay.setMap(this.map);
+    this.configureMapForDirection(this.state.direction);
+
+    this.initialized = true;
   }
+  configureMapForDirection(direction) {
+    this.directionsService.route({
+      origin: direction === 'north'
+        ? { placeId: NORTH_PLACE_ID }
+        : latLng(43.634224, -72.327828),
+      waypoints: direction === 'south'
+        ? [waypoint(43.610691, -72.972626), waypoint(43.798103, -73.086451)]
+        : [],
+      destination: { placeId: BLUEBERRY_PLACE_ID },
+      travelMode: google.maps.TravelMode.DRIVING
+    }, (result, status) => {
+      if (status === google.maps.DirectionsStatus.OK) {
+        this.directionsDisplay.setDirections(result);
+      }
+    });
+  }
+
   render() {
-    return (<div ref="map">{this.props.direction}</div>);
+    return (<div className="map-block" ref="map"></div>);
   }
 }
 
@@ -90,17 +139,25 @@ export default class Directions extends React.Component {
     return (<section id="directions">
       <h2>Directions</h2>
       <div className="inputs">
-        <button onClick={() => this.setState({ direction: 'north' })}>
+        <button
+          className={direction === 'north' ? 'active' : ''}
+          onClick={() => this.setState({ direction: 'north' })}
+        >
           Coming from the North
         </button>
-        <button onClick={() => this.setState({ direction: 'south' })}>
+        <button
+          className={direction === 'south' ? 'active' : ''}
+          onClick={() => this.setState({ direction: 'south' })}
+        >
           Coming from the South
         </button>
       </div>
-      {direction === 'north'
-      ? <FromNorth />
-      : <FromSouth />}
-      <Map direction={this.state.direction} />
+      <div className="direction-container">
+        {direction === 'north'
+        ? <FromNorth />
+        : <FromSouth />}
+        <Map direction={this.state.direction} />
+      </div>
     </section>);
   }
 }
