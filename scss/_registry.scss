@@ -1,0 +1,13 @@
+@import 'config';
+
+#registry {
+  .registry-description {
+    display: flex;
+    align-items: middle;
+
+    a {
+      display: block;
+      width: 33%;
+    }
+  }
+}

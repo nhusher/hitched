@@ -3,9 +3,14 @@ import { Motion, spring } from 'react-motion';
 
 export default function Cover({ scroll, height }) {
   let springs = {
-    offset:  spring(0, { stiffness: 50, damping: 12 }),
+    offset: spring(0, { stiffness: 50, damping: 12 }),
     opacity: spring(1, { stiffness: 60 })
   };
+
+  // TODO:
+  //<li><a href="#registry">Registry</a></li>
+  //<li><a href="#nearby">Nearby</a></li>
+
 
   return (<header>
     <Motion defaultStyle={{ offset: -100, opacity: 0 }} style={springs}>
@@ -28,8 +33,6 @@ export default function Cover({ scroll, height }) {
           <ul>
             <li><a href="#schedule">Schedule</a></li>
             <li><a href="#directions">Directions</a></li>
-            <li><a href="#registry">Registry</a></li>
-            <li><a href="#nearby">Nearby</a></li>
           </ul>
         </nav>)}
     </Motion>

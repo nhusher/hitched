@@ -391,4 +391,15 @@ header {
   #directions .map-block {
     display: none; } }
 
+#registry .registry-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: middle;
+      -ms-flex-align: middle;
+          align-items: middle; }
+  #registry .registry-description a {
+    display: block;
+    width: 33%; }
+
 /*# sourceMappingURL=styles.css.map */

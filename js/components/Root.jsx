@@ -2,10 +2,11 @@ import React from 'react';
 import Cover from './Cover';
 import Schedule from './Schedule';
 import Directions from './Directions';
+import Registry from './Registry';
 
 /*
- <Cover scroll={scroll} height={height} />
- <Schedule scroll={scroll} height={height} />
+ <Registry scroll={scroll} height={height} />
+
  */
 
 function RootUI({ scroll, height }) {

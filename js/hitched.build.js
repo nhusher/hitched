@@ -20567,6 +20567,10 @@
 	
 	var _Directions2 = _interopRequireDefault(_Directions);
 	
+	var _Registry = __webpack_require__(/*! ./Registry */ 186);
+	
+	var _Registry2 = _interopRequireDefault(_Registry);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20576,8 +20580,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	/*
-	 <Cover scroll={scroll} height={height} />
-	 <Schedule scroll={scroll} height={height} />
+	 <Registry scroll={scroll} height={height} />
+	
 	 */
 	
 	function RootUI(_ref) {
@@ -20671,6 +20675,10 @@
 	    opacity: (0, _reactMotion.spring)(1, { stiffness: 60 })
 	  };
 	
+	  // TODO:
+	  //<li><a href="#registry">Registry</a></li>
+	  //<li><a href="#nearby">Nearby</a></li>
+	
 	  return _react2.default.createElement(
 	    'header',
 	    null,
@@ -20742,24 +20750,6 @@
 	                'a',
 	                { href: '#directions' },
 	                'Directions'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                'a',
-	                { href: '#registry' },
-	                'Registry'
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              _react2.default.createElement(
-	                'a',
-	                { href: '#nearby' },
-	                'Nearby'
 	              )
 	            )
 	          )
@@ -23018,6 +23008,53 @@
 	}(_react2.default.Component);
 	
 	exports.default = Directions;
+
+/***/ },
+/* 186 */
+/*!************************************!*\
+  !*** ./js/components/Registry.jsx ***!
+  \************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports.default = Registry;
+	
+	var _react = __webpack_require__(/*! react */ 161);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var REGISTRY_URL = 'http://www.zola.com/registry/sia-and-nick';
+	var ZOLA_LOGO = '/images/zola-logo-black.svg';
+	
+	function Registry() {
+	  return _react2.default.createElement(
+	    'section',
+	    { id: 'registry' },
+	    _react2.default.createElement(
+	      'h2',
+	      null,
+	      'Registry'
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'registry-description' },
+	      _react2.default.createElement(
+	        'a',
+	        { href: REGISTRY_URL },
+	        _react2.default.createElement('img', { src: ZOLA_LOGO, alt: 'zola' })
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Our registry is available on Zola. We aren\'t asking for many tangible gifts because we don\'t know what we\'ll need after we move!'
+	      )
+	    )
+	  );
+	}
 
 /***/ }
 /******/ ]);
