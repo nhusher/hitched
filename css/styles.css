@@ -153,14 +153,16 @@ header {
 
 @media (max-width: 768px) {
   header h1 {
-    font-size: 48px; }
+    font-size: 48px;
+    margin-bottom: 160px; }
     header h1 em {
       display: block; }
   header .date {
-    font-size: 32px;
-    margin: 10vh auto; }
+    display: none; }
   header nav ul {
-    display: block; } }
+    display: block;
+    font-size: 18pt;
+    line-height: 1.5; } }
 
 #schedule ol, #schedule ul {
   list-style: none;

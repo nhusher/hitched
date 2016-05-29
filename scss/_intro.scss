@@ -97,17 +97,19 @@ header {
   header {
     h1 {
       font-size: $standard-font-size * 3;
+      margin-bottom: g(20);
       em {
         display: block;
       }
     }
     .date {
-      font-size: $standard-font-size * 2;
-      margin: 10vh auto;
+      display: none;
     }
     nav {
       ul {
         display: block;
+        font-size: 18pt;
+        line-height: 1.5;
       }
     }
   }
