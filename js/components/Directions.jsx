@@ -5,6 +5,7 @@ const BLUEBERRY_PLACE_ID = 'ChIJEUzdOpNHtUwRbQAI_K6QbLM';
 const NORTH_PLACE_ID = 'ChIJ5VWbtlV6ykwRjkkOchnlX8M';
 const FROM_NORTH_MAPS_LINK = 'http://goo.gl/13SD9c';
 const FROM_SOUTH_MAPS_LINK = 'http://goo.gl/Vzi85T';
+const PRINTABLE_LINK = '/directions.pdf';
 
 const latLng = (lat, lng) => new google.maps.LatLng(lat, lng);
 const waypoint = (lat, lng) => ({ location: latLng(lat, lng) });
@@ -27,7 +28,12 @@ function FromNorth() {
         <li>Turn right onto Goshen Rd.</li>
         <li>Blueberry Hill Inn will be 2.3 miles on the left</li>
       </ol>
-      <a className="google-maps-link" href={FROM_NORTH_MAPS_LINK}>Open this route in google maps</a>
+      <div className="artifacts">
+        <a className="google-maps-link" href={FROM_NORTH_MAPS_LINK}>
+          Open the northern route in google maps
+        </a>
+        <a className="printable" href={PRINTABLE_LINK}>Download printable directions</a>
+      </div>
     </div>);
 }
 
@@ -52,7 +58,14 @@ function FromSouth() {
         <li>Carlisle Hill Rd. will become Goshen-Ripton Rd.</li>
         <li>Blueberry Hill Inn will be 1.3 miles on the right</li>
       </ol>
-      <a className="google-maps-link" href={FROM_SOUTH_MAPS_LINK}>Open this route in google maps</a>
+      <div className="artifacts">
+        <a className="google-maps-link" href={FROM_SOUTH_MAPS_LINK}>
+          Open the southern route in google maps
+        </a>
+        <a className="printable" href={PRINTABLE_LINK}>
+          Download printable directions
+        </a>
+      </div>
     </div>);
 }
 
