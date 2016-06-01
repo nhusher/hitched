@@ -11,3 +11,15 @@
     }
   }
 }
+@media (max-width: 768px) {
+  #registry {
+    .registry-description {
+      .zola-logo {
+        width: 66%;
+        margin: 0 auto;
+      }
+
+      display: block;
+    }
+  }
+}
