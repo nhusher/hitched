@@ -111,6 +111,9 @@
 
 @media (max-width: 768px) {
   #directions {
+    .direction-container {
+      display: block;
+    }
     .map-block {
       display: none;
     }
