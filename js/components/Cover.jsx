@@ -8,7 +8,6 @@ export default function Cover({ scroll, height }) {
   };
 
   // TODO:
-  //<li><a href="#registry">Registry</a></li>
   //<li><a href="#nearby">Nearby</a></li>
 
 
@@ -33,6 +32,7 @@ export default function Cover({ scroll, height }) {
           <ul>
             <li><a href="#schedule">Schedule</a></li>
             <li><a href="#directions">Directions</a></li>
+            <li><a href="#registry">Registry</a></li>
           </ul>
         </nav>)}
     </Motion>

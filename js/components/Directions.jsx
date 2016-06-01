@@ -3,9 +3,8 @@ import React from 'react';
 const API_KEY = 'AIzaSyA-ZBKPhHjwWy_m-ugn06lKV5GbOrBM0Ok';
 const BLUEBERRY_PLACE_ID = 'ChIJEUzdOpNHtUwRbQAI_K6QbLM';
 const NORTH_PLACE_ID = 'ChIJ5VWbtlV6ykwRjkkOchnlX8M';
-const MAP_STYLES = {
-
-};
+const FROM_NORTH_MAPS_LINK = 'http://goo.gl/13SD9c';
+const FROM_SOUTH_MAPS_LINK = 'http://goo.gl/Vzi85T';
 
 const latLng = (lat, lng) => new google.maps.LatLng(lat, lng);
 const waypoint = (lat, lng) => ({ location: latLng(lat, lng) });
@@ -28,6 +27,7 @@ function FromNorth() {
         <li>Turn right onto Goshen Rd.</li>
         <li>Blueberry Hill Inn will be 2.3 miles on the left</li>
       </ol>
+      <a className="google-maps-link" href={FROM_NORTH_MAPS_LINK}>Open this route in google maps</a>
     </div>);
 }
 
@@ -52,6 +52,7 @@ function FromSouth() {
         <li>Carlisle Hill Rd. will become Goshen-Ripton Rd.</li>
         <li>Blueberry Hill Inn will be 1.3 miles on the right</li>
       </ol>
+      <a className="google-maps-link" href={FROM_SOUTH_MAPS_LINK}>Open this route in google maps</a>
     </div>);
 }
 
@@ -97,9 +98,9 @@ class Map extends React.Component {
       scaleControl: false,
       streetViewControl: false,
       fullscreenControl: false,
-      rotateControl: false
+      rotateControl: false,
+      scrollwheel: false
     });
-    this.map.setOptions({ MAP_STYLES });
 
     this.directionsDisplay.setMap(this.map);
     this.configureMapForDirection(this.state.direction);

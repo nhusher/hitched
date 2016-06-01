@@ -4,17 +4,13 @@ import Schedule from './Schedule';
 import Directions from './Directions';
 import Registry from './Registry';
 
-/*
- <Registry scroll={scroll} height={height} />
-
- */
-
 function RootUI({ scroll, height }) {
   return (
     <div>
       <Cover scroll={scroll} height={height} />
       <Schedule scroll={scroll} height={height} />
       <Directions scroll={scroll} height={height} />
+      <Registry scroll={scroll} height={height} />
     </div>);
 }
 

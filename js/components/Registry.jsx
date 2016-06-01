@@ -8,10 +8,11 @@ export default function Registry() {
     <section id="registry">
       <h2>Registry</h2>
       <div className="registry-description">
-        <a href={REGISTRY_URL}><img src={ZOLA_LOGO} alt="zola" /></a>
+        <a href={REGISTRY_URL} className="zola-logo"><img src={ZOLA_LOGO} alt="zola" /></a>
         <p>
-          Our registry is available on Zola. We aren't asking for many tangible gifts because we
-          don't know what we'll need after we move!
+          If you want to give us a gift, our wedding registry is
+          on <a href={REGISTRY_URL}>Zola</a>. We'll also take gifts
+          of fine whiskey and good company.
         </p>
       </div>
     </section>);

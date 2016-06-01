@@ -3,11 +3,11 @@
 #registry {
   .registry-description {
     display: flex;
-    align-items: middle;
 
-    a {
+    .zola-logo {
       display: block;
-      width: 33%;
+      width: 20%;
+      margin-right: g(3);
     }
   }
 }

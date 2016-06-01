@@ -15,10 +15,11 @@ a {
 }
 
 section {
-  min-height: 100vh;
   padding: 5vh;
   box-sizing: border-box;
   position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
 
   ol, ul {
     list-style: none;
