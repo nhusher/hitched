@@ -69,7 +69,9 @@
         padding: g(3);
         justify-content: space-between;
         font-weight: bold;
-
+        a {
+          margin: 0 4px;
+        }
       }
     }
 
