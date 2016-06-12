@@ -49,11 +49,11 @@ export default function Schedule() {
         <h3>Saturday <i>9th</i></h3>
         <ol className="day">
           <li className="guests">
-            <strong>8am-11am</strong>
+            <strong>8am-8:30am</strong>
             <p>Breakfast</p>
           </li>
           <li className="guests">
-            <strong>11am-4pm</strong>
+            <strong>9am-4pm</strong>
             <p>Go have fun!</p>
           </li>
           <li className="everyone">
@@ -83,7 +83,7 @@ export default function Schedule() {
         <h3>Sunday <i>10th</i></h3>
         <ol className="day">
           <li className="guests">
-            <strong>8am-11am</strong> Breakfast
+            <strong>8:30am-9am</strong> Breakfast
           </li>
           <li className="guests">
             <strong>11am</strong> Check-out
