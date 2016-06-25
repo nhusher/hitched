@@ -31,7 +31,7 @@ export default function Schedule() {
             <p>Guests may check into the inn</p>
           </li>
           <li className="guests">
-            <strong>6pm</strong>
+            <strong>6:30pm</strong>
             <p>
               Friday Dinner
               <i>BYOB</i>
