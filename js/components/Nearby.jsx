@@ -88,15 +88,6 @@ export default function Nearby() {
             </p>
           </div>
           <div className="nearby-entry">
-            <h4>Warren</h4>
-            <p className="distance">45 minutes</p>
-            <p>
-              Warren is a small, quaint town on the other side of the mountain. There's a very cool
-              general store in town that occasionally has bottles of Lawson's in their
-              cooler. <a href="https://goo.gl/maps/Ne28WMk3zNG2">Directions</a>
-            </p>
-          </div>
-          <div className="nearby-entry">
             <h4>Burlington</h4>
             <p className="distance">1 hour 20 minutes</p>
             <p>
