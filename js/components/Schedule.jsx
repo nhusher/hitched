@@ -27,7 +27,7 @@ export default function Schedule() {
         <h3>Friday <i>8th</i></h3>
         <ol className="day">
           <li className="guests">
-            <strong>5pm</strong>
+            <strong>3pm</strong>
             <p>Guests may check into the inn</p>
           </li>
           <li className="guests">
