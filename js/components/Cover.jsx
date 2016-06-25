@@ -7,42 +7,40 @@ export default function Cover({ scroll, height }) {
     opacity: spring(1, { stiffness: 60 })
   };
 
-  // TODO:
-  //<li><a href="#nearby">Nearby</a></li>
+  return (
+    <header>
+      <Motion defaultStyle={{ offset: -100, opacity: 0 }} style={springs}>
+        {s => (
+          <h1 style={{ transform: `translateY(${s.offset}px)`, opacity: s.opacity }}>
+            <span>Sia Vissering</span> <em>&</em> <span>Nick Husher</span>
+          </h1>)}
+      </Motion>
+      <Motion defaultStyle={{ opacity: 0 }} style={springs}>
+        {s => (
+          <p className="date" style={{ opacity: s.opacity * 0.8 }}>
+            <time dateTime="2016-07-09">July 9th, 2016</time>
+          </p>
+        )}
+      </Motion>
 
+      <Motion defaultStyle={{ offset: 20, opacity: 0 }} style={springs}>
+        {s => (
+          <nav style={{ transform: `translateY(${s.offset}px)`, opacity: s.opacity }}>
+            <ul>
+              <li><a href="#schedule">Schedule</a></li>
+              <li><a href="#directions">Directions</a></li>
+              <li><a href="#registry">Registry</a></li>
+              <li><a href="#nearby">Nearby</a></li>
+            </ul>
+          </nav>)}
+      </Motion>
 
-  return (<header>
-    <Motion defaultStyle={{ offset: -100, opacity: 0 }} style={springs}>
-      {s => (
-        <h1 style={{ transform: `translateY(${s.offset}px)`, opacity: s.opacity }}>
-          <span>Sia Vissering</span> <em>&</em> <span>Nick Husher</span>
-        </h1>)}
-    </Motion>
-    <Motion defaultStyle={{ opacity: 0 }} style={springs}>
-      {s => (
-        <p className="date" style={{ opacity: s.opacity * 0.8 }}>
-          <time dateTime="2016-07-09">July 9th, 2016</time>
-        </p>
-      )}
-    </Motion>
-
-    <Motion defaultStyle={{ offset: 20, opacity: 0 }} style={springs}>
-      {s => (
-        <nav style={{ transform: `translateY(${s.offset}px)`, opacity: s.opacity }}>
-          <ul>
-            <li><a href="#schedule">Schedule</a></li>
-            <li><a href="#directions">Directions</a></li>
-            <li><a href="#registry">Registry</a></li>
-          </ul>
-        </nav>)}
-    </Motion>
-
-    <p className="next">
-      <a href="#schedule">
-        <img src="./images/chevron.svg" alt="next" />
-      </a>
-    </p>
-  </header>);
+      <p className="next">
+        <a href="#schedule">
+          <img src="./images/chevron.svg" alt="next" />
+        </a>
+      </p>
+    </header>);
 }
 
 Cover.propTypes = {

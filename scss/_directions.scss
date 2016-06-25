@@ -113,6 +113,17 @@
   #directions {
     .direction-container {
       display: block;
+      .directions-block {
+        .artifacts {
+          display: block;
+          padding: g(2) 0;
+
+          a {
+            display: block;
+            padding: g(1) 0;
+          }
+        }
+      }
     }
     .map-block {
       display: none;

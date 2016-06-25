@@ -3,14 +3,16 @@ import Cover from './Cover';
 import Schedule from './Schedule';
 import Directions from './Directions';
 import Registry from './Registry';
+import Nearby from './Nearby';
 
 function RootUI({ scroll, height }) {
   return (
     <div>
-      <Cover scroll={scroll} height={height} />
-      <Schedule scroll={scroll} height={height} />
-      <Directions scroll={scroll} height={height} />
-      <Registry scroll={scroll} height={height} />
+      <Cover />
+      <Schedule />
+      <Directions />
+      <Registry />
+      <Nearby />
     </div>);
 }
 
@@ -26,14 +28,17 @@ export default class Root extends React.Component {
       scroll: window.scrollY,
       height: window.innerHeight
     };
+    this.scrollListener = () => this.setState({ scroll: window.scrollY });
+    this.resizeListener = () => this.setState({ height: window.innerHeight });
   }
   componentDidMount() {
-    window.addEventListener('scroll', () => this.setState({ scroll: window.scrollY }));
-    window.addEventListener('resize', () => this.setState({ height: window.innerHeight }));
+    // Not using scroll events:
+    //window.addEventListener('scroll', this.scrollListener);
+    //window.addEventListener('resize', this.resizeListener);
   }
   componentWillUnmount() {
-    // TODO:
-    // window.removeEventListener('scroll');
+    //window.removeEventListener('scroll', this.scrollListener);
+    //window.removeEventListener('resize', this.resizeListener);
   }
   render() {
     return <RootUI scroll={this.state.scroll} height={this.state.height} />;

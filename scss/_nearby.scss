@@ -1,0 +1,75 @@
+@import 'config';
+
+#nearby {
+  h3 {
+    font-family: $estilo;
+    font-size: g(4);
+    text-align: center;
+    position: relative;
+
+    span {
+      background: white;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      padding: 0 g(2);
+    }
+
+    &:after {
+      content: "";
+      border-bottom: 2px solid $lilac;
+      position: absolute;
+      top: 40%;
+      width: 100%;
+      left: 0;
+    }
+  }
+
+  .nearby-sections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .nearby-section {
+    width: 48%;
+  }
+
+  .nearby-entry {
+    position: relative;
+
+    .distance {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      color: #999;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  #nearby {
+    .nearby-sections {
+      display: block !important;
+    }
+    .nearby-section {
+      width: auto;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  #nearby {
+    .nearby-entry {
+      h4 {
+        margin-bottom: 0;
+      }
+      .distance {
+        position: static;
+        text-align: right;
+      }
+    }
+  }
+}
