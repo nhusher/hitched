@@ -1,7 +1,7 @@
 import React from 'react';
 
 const REGISTRY_URL = 'http://www.zola.com/registry/sia-and-nick';
-const ZOLA_LOGO = '/images/zola-logo-black.svg';
+const ZOLA_LOGO = 'images/zola-logo-black.svg';
 
 export default function Registry() {
   return (
